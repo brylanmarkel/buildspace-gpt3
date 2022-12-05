@@ -3,14 +3,14 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Manrope', sans-serif;
+    font-family: SF Pro Rounded;
 }
 
 .root {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-image: url('../assets/sky.jpeg');
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -40,7 +40,7 @@ body {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    color: #FFF
+    color: #E70012;
 }
 
 .header-title {
@@ -51,9 +51,9 @@ body {
 .header-title h1 {
     width: 100%;
     font-weight: 700;
-    font-size: 72px;
-    letter-spacing: -4px;
-    line-height: 1.2em;
+    font-size: 65px;
+    letter-spacing: 0px;
+    line-height: 78px;
     text-align: center;
     margin: 0;
 }
@@ -61,9 +61,10 @@ body {
 .header-subtitle h2 {
     font-size: 20px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 1.4em;
-    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+    line-height: 24px;
+    color: #323640;
+    text-align: center;
 }
 
 .prompt-container {
@@ -87,7 +88,7 @@ body {
     border-top-width: 1px;
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: #fff;
     border-radius: 16px;
     display: flex;
     flex: 0 0 auto;
@@ -108,7 +109,7 @@ body {
     letter-spacing: 0px;
     line-height: 1.6em;
     text-align: start;
-    color: rgba(255, 255, 255, 0.75);
+    color: #323640;
     text-decoration: none;
     text-transform: none;
 }
@@ -171,19 +172,19 @@ textarea {
 
 .generate-button {
     place-content: flex-start;
-    align-items: flex-start;
-    background-color: rgb(255, 79, 18);
-    border-radius: 100px;
+    align-items: center;
+    background-color: #00CF6C;
+    border-radius: 8px;
     display: flex;
     flex: 0 0 auto;
     flex-flow: column nowrap;
     gap: 10px;
     height: min-content;
     overflow: hidden;
-    padding: 16px 24px;
+    padding: 16px 8px;
     position: relative;
     text-decoration: none;
-    width: min-content;
+    width: 248px;
     will-change: transform;
     cursor: pointer;
 }
@@ -200,6 +201,8 @@ textarea {
 .generate p {
     color: rgb(255, 255, 255);
     margin: 0;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .loading {
