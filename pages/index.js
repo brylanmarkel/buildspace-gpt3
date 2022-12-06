@@ -23,7 +23,6 @@ const callGenerateEndpoint = async () => {
 
   const data = await response.json();
   const { output } = data;
-  console.log("OpenAI replied...", output.text)
 
   setApiOutput(`${output.text}`);
   setIsGenerating(false);
@@ -56,24 +55,26 @@ const onUserChangedText = (event) => {
         value={userInput}
         onChange={onUserChangedText}/>
         <div>
-          <a className='generate-button' onClick={callGenerateEndpoint}>
+          <a 
+          className={isGenerating ? 'generate-button-loading' : 'generate-button'}
+          onClick={callGenerateEndpoint}>
             <div className='generate'>
-              <p>🪄 Jurnee work your magic</p>
+              {isGenerating ? <span className='loader'></span> : <p>🪄 Jurnee work your magic</p>}
             </div>
           </a>
         </div>
-      </div>
-      <div className="badge-container grow">
-        <a
-          href="https://buildspace.so/builds/ai-writer"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="badge">
-            <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
-        </a>
+        {apiOutput && (
+        <div className='output'>
+           <div className='output-header-container'>
+             <div className='output-header'>
+              <h3>Output</h3>
+             </div>
+           </div>
+           <div className='output-content'>
+            <p>{apiOutput}</p>
+           </div>
+        </div>
+        )}
       </div>
     </div>
   );
