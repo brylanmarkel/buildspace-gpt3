@@ -7,17 +7,17 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const basePromptPrefix = 
 `
-Ask: Write a 1-2 paragraphs for a college student with the question below. Please make sure the essay goes in-depth on the topic and shows that the writer did their research. Please use real world examples when necessary to strengthen argument. Answer the question directly and be clear and concise.
+Ask: provide an answer based on the question, question type, and subject below. take it step by step to reach solution.
 
-Question: 
+Question:
 `
 const generateAction = async (req, res) => {
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
+  console.log(`API: ${basePromptPrefix}${req.body.userInput}\n Question type: ${req.body.userQuestionType} Subject: ${req.body.userSubject}`)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+    prompt: `${basePromptPrefix}${req.body.userInput}\n Question type: ${req.body.userQuestionType}\n Subject: ${req.body.userSubject}`,
     temperature: 0.8,
     max_tokens: 350,
   });
